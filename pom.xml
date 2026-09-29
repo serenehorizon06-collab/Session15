@@ -19,6 +19,7 @@
     <modules>
         <module>identity-service</module>
         <module>gateway-service</module>
+        <module>course-service</module>
     </modules>
 
     <properties>
