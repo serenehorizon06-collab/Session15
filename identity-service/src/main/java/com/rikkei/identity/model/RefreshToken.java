@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import java.time.Instant;
 
 @Entity
@@ -13,6 +14,7 @@ public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String token;
     private String username;
     private Instant expiryDate;
@@ -42,4 +44,3 @@ public class RefreshToken {
         return expiryDate;
     }
 }
-

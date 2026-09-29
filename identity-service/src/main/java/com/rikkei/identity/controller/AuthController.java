@@ -1,6 +1,7 @@
 package com.rikkei.identity.controller;
 
 import com.rikkei.identity.dto.LoginRequest;
+import com.rikkei.identity.dto.RefreshTokenRequest;
 import com.rikkei.identity.dto.TokenResponse;
 import com.rikkei.identity.service.AuthService;
 import org.springframework.http.ResponseEntity;
@@ -22,5 +23,9 @@ public class AuthController {
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
     }
-}
 
+    @PostMapping("/refresh")
+    public ResponseEntity<TokenResponse> refresh(@RequestBody RefreshTokenRequest request) {
+        return ResponseEntity.ok(authService.refresh(request));
+    }
+}
