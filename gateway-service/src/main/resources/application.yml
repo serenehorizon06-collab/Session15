@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: course-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/courses/**
+
+jwt:
+  secret: ${JWT_SECRET:session15-secret-key-must-have-at-least-32-bytes}
